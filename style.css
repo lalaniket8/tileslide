@@ -1,0 +1,14 @@
+canvas{
+	border : 0px solid black;
+	height : 480px;
+	width : 640px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+body{
+	background-color: black;
+}
+p{
+	color : white;
+}
