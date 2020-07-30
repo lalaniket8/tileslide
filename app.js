@@ -7,7 +7,7 @@ $(document).ready(function(){
 	
 	var board = new Board();
 	
-	board.randomize(false);
+	board.randomize(true);
 	board.drawBoard();	
 	
 	setKeyDownCallback(function(e){
