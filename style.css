@@ -1,14 +1,192 @@
 canvas{
-	border : 0px solid black;
-	height : 480px;
-	width : 640px;
+	border : 0px;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	background-color: black;
+	color : white;
+	padding: 0;
+    margin: auto;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 body{
 	background-color: black;
+	overflow: hidden;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
-p{
-	color : white;
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.8s;
+  padding-top: 60px;
+}
+
+.sidenav span {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font: 20px Lucida Console;
+  color: #818181;
+  display: block;
+  transition: 0.5s;
+}
+
+.sidenav .closebtnsidenav {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font: 30px Lucida Console;
+  padding: 10px;
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.optionsbtnsidenav {
+	font-size:30px;
+	cursor:pointer;
+	color:lightgrey;
+}
+
+.callout {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 0;
+  margin: auto;
+  display: none;
+  width: 170px;
+  height: 100px;
+  border: 1px solid black;
+  z-index: 1;
+}
+
+.callout-header {
+  background: #555;
+  font: 18px Lucida Console;
+  color: #ccc;
+  text-align: center;
+  height: 15px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.callout-container {
+  background-color: #ccc;
+  color: black;
+  font: 10px Lucida Console;
+  height: 61px;
+  border: 1px solid black;
+}
+
+.calloutbtn {
+  position: absolute;
+  margin: 0 auto;
+  color: white;
+  font: 12px Lucida Console;
+  background-color: #555;
+  display: block;
+  width: 100px;
+  height: 25px;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+}
+
+.callout-text{
+	color: black;
+    font: 15px Lucida Console;
+	text-align: center;
+	padding: 10px;
+}
+
+.sidenavinputgroup {
+	padding: 15px;
+	display: inline-block;
+}
+
+.sidenavbutton {
+	font: 20px Lucida Console;
+	cursor:pointer;
+}
+
+.sidenavfield {
+	width: 30px;
+	height: 20px;
+	font: 13px Lucida Console;
+	color: black;
+}
+
+.sidenavlabel {
+	color: lightgrey;
+	font: 15px Lucida Console;
+}
+
+.switch {
+  position: absolute;
+  display: none;/*inline-block;*/
+  width: 30px;
+  height: 10px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+   border-radius: 13px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.slider:after
+{
+ color: white;
+ display: block;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ top: 50%;
+ left: 50%;
+ font-family: Verdana, sans-serif;
 }

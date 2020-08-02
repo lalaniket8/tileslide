@@ -1,12 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <img src="resources/images/block.png" height="0" width="0" style="visibility: hidden"/>
+<img src="resources/images/mask.png" height="0" width="0" style="visibility: hidden"/>
 </head>
 <body>
-<canvas id="canvas" height="480" width="640">
+<span class="optionsbtnsidenav" onclick="openNav()">&#9776;</span>
+<div id="mySidenav" class="sidenav">
+  <span class="closebtnsidenav" onclick="closeNav()">&times;</span>
+  <div>
+	<div class="sidenavinputgroup">
+	  <label class="sidenavlabel">BOARD SIZE : </label>
+	  <input type="button" class="sidenavbutton" value="-" id="button-minus" onclick="minusClick()"/>
+	  <input type="number" class="sidenavfield" id="boardsize-field" disabled />
+	  <input type="button" class="sidenavbutton" value="+" id="button-plus" onclick="plusClick()"/>
+	</div>
+  </div>
+  <div>
+    <div class="sidenavinputgroup">
+	  <label class="sidenavlabel">STOPWATCH : </label>
+		<label class="switch">
+			<input type="checkbox" id="togBtn">
+			<div class="slider round"></div>
+		</label>
+	</div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="callout" id="SolvedMsg">
+  <div class="callout-header">TILESLIDE</div>
+  <div class="callout-container">
+	<div class="callout-text">SOLVED in 10:23</div>
+	<button class="calloutbtn" id="calloutbtn1" onclick="solvedBtnClick()">Try Again!</button>
+  </div>
+</div>
+
+<canvas id="canvas">
+CANVAS NOT SUPPORTED.
 </canvas><br/>
-<p></p>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="constants.js"></script>
 <script src="canvas.js"></script>

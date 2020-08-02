@@ -94,16 +94,10 @@ var Board = function(){
 			if(blankTile){break;}
 		}
 		if(blankTile != undefined){
-			//var i = blankTile.tile_x_in;
-			//var j = blankTile.tile_y_in;
 			if(i<TILE_COUNT-1){
 				var temp_tile = this.tilemap[i][j];
 				this.tilemap[i][j] = this.tilemap[i+1][j];
-				//this.tilemap[i][j].tile_x_in = i;
-				//this.tilemap[i][j].tile_x = (BOARD_LEFT_OFFSET + (this.tilemap[i][j].tile_x_in * TILE_SIZE));
 				this.tilemap[i+1][j] = temp_tile;
-				//this.tilemap[i+1][j].tile_x_in = i+1;
-				//this.tilemap[i+1][j].tile_x = (BOARD_LEFT_OFFSET + (this.tilemap[i+1][j].tile_x_in * TILE_SIZE));
 				if(animate){
 					this.drawTile(i,j);
 					this.drawTile(i+1,j);
@@ -127,13 +121,9 @@ var Board = function(){
 			if(blankTile){break;}
 		}
 		if(blankTile != undefined){
-			//var i = blankTile.tile_x_in;
-			//var j = blankTile.tile_y_in;
 			if(i>0){
 				var temp_tile = this.tilemap[i][j];
 				this.tilemap[i][j] = this.tilemap[i-1][j];
-				//this.tilemap[i][j].tile_x_in = i;
-				//this.tilemap[i][j].tile_x = (BOARD_LEFT_OFFSET + (this.tilemap[i][j].tile_x_in * TILE_SIZE));
 				this.tilemap[i-1][j] = temp_tile;
 				if(animate){
 					this.drawTile(i,j);
@@ -155,13 +145,9 @@ var Board = function(){
 			if(blankTile){break;}
 		}
 		if(blankTile != undefined){
-			//var i = blankTile.tile_x_in;
-			//var j = blankTile.tile_y_in;
 			if(j<TILE_COUNT-1){
 				var temp_tile = this.tilemap[i][j];
 				this.tilemap[i][j] = this.tilemap[i][j+1];
-				//this.tilemap[i][j].tile_y_in = j;
-				//this.tilemap[i][j].tile_y = (BOARD_TOP_OFFSET + (this.tilemap[i][j].tile_y_in * TILE_SIZE));
 				this.tilemap[i][j+1] = temp_tile;
 				if(animate){
 					this.drawTile(i,j);
@@ -185,13 +171,9 @@ var Board = function(){
 			if(blankTile){break;}
 		}
 		if(blankTile != undefined){
-			//var i = blankTile.tile_x_in;
-			//var j = blankTile.tile_y_in;
 			if(j>0){
 				var temp_tile = this.tilemap[i][j];
 				this.tilemap[i][j] = this.tilemap[i][j-1];
-				//this.tilemap[i][j].tile_y_in = j;
-				//this.tilemap[i][j].tile_y = (BOARD_TOP_OFFSET + (this.tilemap[i][j].tile_y_in * TILE_SIZE));
 				this.tilemap[i][j-1] = temp_tile;
 				if(animate){
 					this.drawTile(i,j);
