@@ -1,6 +1,8 @@
 var board = undefined;
 var solvedCalloutDisplayed = undefined;
-var stopwatchToggle = undefined;
+var stopwatchDisplayToggle = true;
+var stopwatch = new stopwatch("stopwatchvalue");
+
 init();
 
 function minusClick(){
@@ -15,6 +17,17 @@ function plusClick(){
 		TILE_COUNT++;
 		init();
 	}
+}
+
+function toggle(){
+	if(stopwatchDisplayToggle){
+		stopwatchDisplayToggle = false;
+		document.getElementById("stopwatch").style.display = 'none';
+	}else{
+		stopwatchDisplayToggle = true;
+		document.getElementById("stopwatch").style.display = 'block';
+	}
+	document.getElementById('canvas').focus();
 }
 
 function openNav() {
@@ -33,9 +46,13 @@ function solvedBtnClick(){
 };
 
 function init(){
-	solvedCalloutDisplayed = false;
-	stopwatchToggle = true;
 	document.getElementById("boardsize-field").value = TILE_COUNT;
+	
+	if(stopwatchDisplayToggle){
+		document.getElementById("stopwatch").style.display = 'block';
+	}else{
+		document.getElementById("stopwatch").style.display = 'none';
+	}
 	
 	BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
     BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
@@ -62,27 +79,51 @@ $(document).ready(function(){
 			switch(e.code){
 				case 'KeyW':
 					board.moveUp(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'KeyA':
 					board.moveLeft(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'KeyS':
 					board.moveDown(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'KeyD':
 					board.moveRight(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'ArrowUp':
 					board.moveUp(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'ArrowLeft':
 					board.moveLeft(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'ArrowDown':
 					board.moveDown(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				case 'ArrowRight':
 					board.moveRight(true);
+					if(!stopwatch.running){
+						stopwatch.start();
+					}
 				break;
 				default:
 			}
@@ -91,10 +132,19 @@ $(document).ready(function(){
 				document.getElementById('SolvedMsg').style.display='block';
 				document.getElementById('calloutbtn1').focus();
 				solvedCalloutDisplayed = true;
+				if(stopwatch.running){
+					stopwatch.stop();
+					console.log(stopwatch.getValue());
+					document.getElementById('callout-text1').innerHTML = 'SOLVED IN ' + stopwatch.getValue() + ' secs!';
+					stopwatch.reset();
+				}else{
+					document.getElementById('callout-text1').innerHTML = 'SOLVED!';
+				}
 			}else{
 				document.getElementById('SolvedMsg').style.display='none';
 				solvedCalloutDisplayed = false;
 			}
+
 		}
 	});
 	

@@ -19,29 +19,31 @@
   </div>
   <div>
     <div class="sidenavinputgroup">
-	  <label class="sidenavlabel">STOPWATCH : </label>
+	  <label class="sidenavlabel">STOPWATCH :</label>
 		<label class="switch">
-			<input type="checkbox" id="togBtn">
+			<input type="checkbox" id="togBtn" checked onclick="toggle()">
 			<div class="slider round"></div>
 		</label>
 	</div>
   </div>
-  <div></div>
-  <div></div>
-  <div></div>
   <div></div>
 </div>
 
 <div class="callout" id="SolvedMsg">
   <div class="callout-header">TILESLIDE</div>
   <div class="callout-container">
-	<div class="callout-text">SOLVED!</div>
+	<div class="callout-text" id="callout-text1">[callout-text]</div>
 	<button class="calloutbtn" id="calloutbtn1" onclick="solvedBtnClick()">Try Again</button>
   </div>
 </div>
 
+<div id="stopwatch">
+<span>&#x23F2;</span>
+<span id="stopwatchvalue">--.--</span>
+</div>
+
 <canvas id="canvas">
-CANVAS NOT SUPPORTED.
+[CANVAS NOT SUPPORTED]
 </canvas><br/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="constants.js"></script>
@@ -50,6 +52,7 @@ CANVAS NOT SUPPORTED.
 <script src="touch.js"></script>
 <script src="keyboard.js"></script>
 <script src="board.js"></script>
+<script src="stopwatch.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
