@@ -12,5 +12,5 @@ FEATURES
 Game Instructions: Use Arrowkeys, WASD or Swipe to order the tiles.
 
 LICENSE: 
-[MIT LICENSE](#https://github.com/lalaniket8/tileslide/blob/master/LICENSE)
+[MIT LICENSE](https://github.com/lalaniket8/tileslide/blob/master/LICENSE)
 
