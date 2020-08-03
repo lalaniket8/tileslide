@@ -1,6 +1,8 @@
 var TILE_COUNT = 3;
 var CANVAS_WIDTH = 800;
 var CANVAS_HEIGHT = 800;
+var CANVAS_WIDTH_MAX = 800;
+var CANVAS_HEIGHT_MAX = 800;
 var TILE_SIZE = 64;
 var DEFAULT_CANVAS_COLOR = 'black';//'rgb(83,86,44)';
 

@@ -1,8 +1,6 @@
 canvas{
 	border : 0px;
 	display: block;
-	background-color: black;
-	color : white;
 	padding: 0;
     margin: auto;
 	position: absolute;
@@ -67,7 +65,7 @@ body{
   padding: 0;
   margin: auto;
   display: none;
-  width: 190px;
+  width: 200px;
   height: 100px;
   border: 1px solid black;
   z-index: 1;
@@ -182,4 +180,16 @@ input:checked + .slider:before {
 	text-align: right;
 	display: block;
 	margin-right: 30px;
+	padding: 10px;
+}
+
+#GitHubLink {
+	color: lightgrey; 
+	font: 17px Lucida Console;
+	display: block;
+	position: absolute;
+	padding: 10px;
+	right: 10px;
+	top: 10px;
+	
 }

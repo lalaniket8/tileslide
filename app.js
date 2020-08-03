@@ -79,49 +79,49 @@ $(document).ready(function(){
 			switch(e.code){
 				case 'KeyW':
 					board.moveUp(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'KeyA':
 					board.moveLeft(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'KeyS':
 					board.moveDown(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'KeyD':
 					board.moveRight(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'ArrowUp':
 					board.moveUp(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'ArrowLeft':
 					board.moveLeft(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'ArrowDown':
 					board.moveDown(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
 				case 'ArrowRight':
 					board.moveRight(true);
-					if(!stopwatch.running){
+					if(!stopwatch.running && stopwatchDisplayToggle){
 						stopwatch.start();
 					}
 				break;
@@ -170,4 +170,35 @@ $(document).ready(function(){
 	
 	setOntouchendCallback(touchEndCancelCallback);
 	
+});
+
+$(window).resize(function(e){
+	var windowHeight = e.target.innerHeight;
+	var windowWidth = e.target.innerWidth;
+	if(windowWidth < CANVAS_WIDTH){
+		CANVAS_WIDTH = windowWidth;
+		
+		BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
+		BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
+		BOARD_RIGHT_MARGIN = (BOARD_LEFT_OFFSET + (TILE_SIZE * TILE_COUNT));
+		BOARD_BOTTOM_MARGIN = (BOARD_TOP_OFFSET + (TILE_SIZE * TILE_COUNT));
+		
+		Context.context.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+		Context.context.fillStyle = DEFAULT_CANVAS_COLOR;
+		Context.context.fill();
+		board.drawBoard();
+	}
+	if(windowWidth >= CANVAS_WIDTH_MAX){
+		CANVAS_WIDTH = CANVAS_WIDTH_MAX;
+		
+		BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
+		BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
+		BOARD_RIGHT_MARGIN = (BOARD_LEFT_OFFSET + (TILE_SIZE * TILE_COUNT));
+		BOARD_BOTTOM_MARGIN = (BOARD_TOP_OFFSET + (TILE_SIZE * TILE_COUNT));
+		
+		Context.context.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+		Context.context.fillStyle = DEFAULT_CANVAS_COLOR;
+		Context.context.fill();
+		board.drawBoard();
+	}
 });
