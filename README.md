@@ -1,4 +1,4 @@
-# TileSlidingGame
+# tileslide
 
 A Simple Minimalistic Tile Sliding game.
 
