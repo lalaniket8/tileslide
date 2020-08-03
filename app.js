@@ -54,6 +54,9 @@ function init(){
 		document.getElementById("stopwatch").style.display = 'none';
 	}
 	
+	CANVAS_WIDTH = ((TILE_SIZE * TILE_COUNT) + 100);
+	CANVAS_HEIGHT = ((TILE_SIZE * TILE_COUNT) + 100);
+	
 	BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
     BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
     BOARD_RIGHT_MARGIN = (BOARD_LEFT_OFFSET + (TILE_SIZE * TILE_COUNT));
@@ -73,7 +76,6 @@ function init(){
 };
 
 $(document).ready(function(){
-	
 	setKeyDownCallback(function(e){
 		if(!solvedCalloutDisplayed){
 			switch(e.code){
@@ -127,7 +129,6 @@ $(document).ready(function(){
 				break;
 				default:
 			}
-		
 			if(board.checkBoard()){
 				document.getElementById('SolvedMsg').style.display='block';
 				document.getElementById('calloutbtn1').focus();
@@ -144,61 +145,55 @@ $(document).ready(function(){
 				document.getElementById('SolvedMsg').style.display='none';
 				solvedCalloutDisplayed = false;
 			}
-
 		}
 	});
 	
 	var touchEndCancelCallback = function(){
-		
-		if(Math.abs(Touch.delX) > Math.abs(Touch.delY)){//left-right
-			if(Touch.X > Touch.oldX){//left to right swipe
-				board.moveRight(true);
-			}else{//right to left swipe
-				board.moveLeft(true);
+		if(!solvedCalloutDisplayed){
+			if(Math.abs(Touch.delX) > Math.abs(Touch.delY)){//left-right
+				if(Touch.X > Touch.oldX){//left to right swipe
+					board.moveRight(true);
+					if(!stopwatch.running && stopwatchDisplayToggle){
+							stopwatch.start();
+						}
+				}else{//right to left swipe
+					board.moveLeft(true);
+					if(!stopwatch.running && stopwatchDisplayToggle){
+							stopwatch.start();
+						}
+				}
+			}else if(Math.abs(Touch.delX) < Math.abs(Touch.delY)){//up-down
+				if(Touch.Y > Touch.oldY){//top to bottom swipe
+					board.moveDown(true);
+					if(!stopwatch.running && stopwatchDisplayToggle){
+							stopwatch.start();
+						}
+				}else{//bottom to top swipe
+					board.moveUp(true);
+					if(!stopwatch.running && stopwatchDisplayToggle){
+							stopwatch.start();
+						}
+				}
+			}else{}
+			if(board.checkBoard()){
+				document.getElementById('SolvedMsg').style.display='block';
+				document.getElementById('calloutbtn1').focus();
+				solvedCalloutDisplayed = true;
+				if(stopwatch.running){
+					stopwatch.stop();
+					console.log(stopwatch.getValue());
+					document.getElementById('callout-text1').innerHTML = 'SOLVED IN ' + stopwatch.getValue() + ' secs!';
+					stopwatch.reset();
+				}else{
+					document.getElementById('callout-text1').innerHTML = 'SOLVED!';
+				}
+			}else{
+				document.getElementById('SolvedMsg').style.display='none';
+				solvedCalloutDisplayed = false;
 			}
-		}else if(Math.abs(Touch.delX) < Math.abs(Touch.delY)){//up-down
-			if(Touch.Y > Touch.oldY){//top to bottom swipe
-				board.moveDown(true);
-			}else{//bottom to top swipe
-				board.moveUp(true);
-			}
-		}else{}
+		}
 		
 	};
-	
 	setOntouchcancelCallback(touchEndCancelCallback);
-	
 	setOntouchendCallback(touchEndCancelCallback);
-	
-});
-
-$(window).resize(function(e){
-	var windowHeight = e.target.innerHeight;
-	var windowWidth = e.target.innerWidth;
-	if(windowWidth < CANVAS_WIDTH){
-		CANVAS_WIDTH = windowWidth;
-		
-		BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
-		BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
-		BOARD_RIGHT_MARGIN = (BOARD_LEFT_OFFSET + (TILE_SIZE * TILE_COUNT));
-		BOARD_BOTTOM_MARGIN = (BOARD_TOP_OFFSET + (TILE_SIZE * TILE_COUNT));
-		
-		Context.context.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-		Context.context.fillStyle = DEFAULT_CANVAS_COLOR;
-		Context.context.fill();
-		board.drawBoard();
-	}
-	if(windowWidth >= CANVAS_WIDTH_MAX){
-		CANVAS_WIDTH = CANVAS_WIDTH_MAX;
-		
-		BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
-		BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
-		BOARD_RIGHT_MARGIN = (BOARD_LEFT_OFFSET + (TILE_SIZE * TILE_COUNT));
-		BOARD_BOTTOM_MARGIN = (BOARD_TOP_OFFSET + (TILE_SIZE * TILE_COUNT));
-		
-		Context.context.rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-		Context.context.fillStyle = DEFAULT_CANVAS_COLOR;
-		Context.context.fill();
-		board.drawBoard();
-	}
 });
