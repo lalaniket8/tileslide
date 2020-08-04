@@ -187,7 +187,7 @@ input:checked + .slider:before {
 
 #GitHubLink {
 	color: lightgrey; 
-	font: 17px Lucida Console;
+	font: 16px Lucida Console;
 	display: block;
 	position: absolute;
 	padding: 10px;

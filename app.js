@@ -54,8 +54,8 @@ function init(){
 		document.getElementById("stopwatch").style.display = 'none';
 	}
 	
-	CANVAS_WIDTH = ((TILE_SIZE * TILE_COUNT) + 100);
-	CANVAS_HEIGHT = ((TILE_SIZE * TILE_COUNT) + 100);
+	CANVAS_WIDTH = ((TILE_SIZE * TILE_COUNT) + 2);
+	CANVAS_HEIGHT = ((TILE_SIZE * TILE_COUNT) + 2);
 	
 	BOARD_LEFT_OFFSET = (CANVAS_WIDTH / 2) - (TILE_SIZE * (TILE_COUNT / 2));
     BOARD_TOP_OFFSET = (CANVAS_HEIGHT / 2) - (TILE_SIZE * (TILE_COUNT / 2));
