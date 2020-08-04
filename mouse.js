@@ -14,7 +14,7 @@ var addMouseDownCallback = function(f){
 	mouseDownCallback = f;
 };
 
-$('#canvas').mousedown(function(e){
+$(document).mousedown(function(e){
 	Mouse.left = true;
 	if(mouseDownCallback != undefined)
 		mouseDownCallback(e);
@@ -26,7 +26,7 @@ var addMouseUpCallback = function(f){
 	mouseUpCallback = f;
 };
 
-$('#canvas').mouseup(function(e){
+$(document).mouseup(function(e){
 	Mouse.left = false;
 	if(mouseUpCallback != undefined)
 		mouseUpCallback(e);
@@ -38,7 +38,7 @@ var addMouseMoveCallback = function(f){
 	mouseMoveCallback = f;
 };
 
-$('#canvas').mousemove(function(e){
+$(document).mousemove(function(e){
 	Mouse.X = e.offsetX;
 	Mouse.Y = e.offsetY;
 	if(mouseMoveCallback != undefined)
@@ -51,7 +51,7 @@ var addMouseLeaveCallback = function(f){
 	mouseLeaveCallback = f;
 };
 
-$('#canvas').mouseleave(function(e){
+$(document).mouseleave(function(e){
 	Mouse.left = false;
 	if(mouseLeaveCallback != undefined)
 		mouseLeaveCallback(e);

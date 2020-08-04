@@ -8,13 +8,12 @@ var Board = function(){
 		tile_number = i + 1;
 		this.tilemap[i] = new Array(TILE_COUNT);
 		for(var j=0; j<TILE_COUNT; j++){
-			this.tilemap[i][j] = tile_number;//new tile(tile_number,i,j);
+			this.tilemap[i][j] = tile_number;
 			tile_number = tile_number + TILE_COUNT;
 		}
 	}
 	
 	this.randomize = async function(animate){
-		$('p').html('SHUFLING...');
 		var ret = 0;
 		for(var i=0; i<RANDOM_STEPS; i++){
 			var move = Math.floor(Math.random() * 4);
@@ -37,12 +36,10 @@ var Board = function(){
 				i--;
 			}else{
 				if(animate){
-					//this.drawBoard();
 					await new Promise(resolve => setTimeout(resolve, ANIMATION_TIMEOUT));
 				}
 			}
 		}
-		$('p').html('');
 	};
 	
 	this.drawTile = function(i,j){

@@ -48,6 +48,8 @@ function solvedBtnClick(){
 function init(){
 	document.getElementById("boardsize-field").value = TILE_COUNT;
 	
+	stopwatch.reset();
+	
 	if(stopwatchDisplayToggle){
 		document.getElementById("stopwatch").style.display = 'block';
 	}else{

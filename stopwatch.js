@@ -22,8 +22,9 @@ var stopwatch = function(stopwatchElementID){
 		clearInterval(myTimer);
 	}
 	this.reset = function(){
-		this.running = false;
+		this.stop();
 		timeElapsed = 0;
+		document.getElementById(stopwatchElementID).innerHTML = timeElapsed;
 	}
 	this.getValue = function() {
 		return timeElapsed;
