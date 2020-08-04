@@ -136,10 +136,17 @@ $(document).ready(function(){
 				if(stopwatch.running){
 					stopwatch.stop();
 					console.log(stopwatch.getValue());
-					document.getElementById('callout-text1').innerHTML = 'SOLVED IN ' + stopwatch.getValue() + ' secs!';
+					var time = stopwatch.getValue();
+					var mins = Math.floor(time / 60);
+					var secs = Math.round(((time % 60) + Number.EPSILON) * 10) / 10;
+					if(mins > 0){
+						document.getElementById('callout-text1').innerHTML = 'Solved in ' + mins + ' min ' + secs + ' secs!';
+					}else{
+						document.getElementById('callout-text1').innerHTML = 'Solved in ' + secs + ' secs!';
+					}
 					stopwatch.reset();
 				}else{
-					document.getElementById('callout-text1').innerHTML = 'SOLVED!';
+					document.getElementById('callout-text1').innerHTML = 'Solved!';
 				}
 			}else{
 				document.getElementById('SolvedMsg').style.display='none';
@@ -182,10 +189,17 @@ $(document).ready(function(){
 				if(stopwatch.running){
 					stopwatch.stop();
 					console.log(stopwatch.getValue());
-					document.getElementById('callout-text1').innerHTML = 'SOLVED IN ' + stopwatch.getValue() + ' secs!';
+					var time = stopwatch.getValue();
+					var mins = Math.floor(time / 60);
+					var secs = Math.round(((time % 60) + Number.EPSILON) * 10) / 10;
+					if(mins > 0){
+						document.getElementById('callout-text1').innerHTML = 'Solved in ' + mins + ' min ' + secs + ' secs!';
+					}else{
+						document.getElementById('callout-text1').innerHTML = 'Solved in ' + secs + ' secs!';
+					}
 					stopwatch.reset();
 				}else{
-					document.getElementById('callout-text1').innerHTML = 'SOLVED!';
+					document.getElementById('callout-text1').innerHTML = 'Solved!';
 				}
 			}else{
 				document.getElementById('SolvedMsg').style.display='none';
