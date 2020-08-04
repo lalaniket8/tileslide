@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <img src="resources/images/block.png" height="0" width="0" style="visibility: hidden"/>
 <img src="resources/images/mask.png" height="0" width="0" style="visibility: hidden"/>
@@ -27,6 +27,9 @@
 		</label>
 	</div>
   </div>
+  <div>
+	<button onclick="location.reload()" style="font: 15px Lucida Console; margin: 15px; cursor:pointer;">REFRESH</button>
+  </div>
   <div style="font:15px Lucida Console; color:lightgrey; text-align:left; padding: 14px">
   <b>INSTRUCTIONS:</b><br>
   <span style="font:13px Lucida Console; color:lightgrey;">Use Arrowkeys, WASD or Swipe to order the tiles.</span>
@@ -41,14 +44,18 @@
   </div>
 </div>
 
+<div id="GitHubLink">
+<span>STAR ME ON</span>
+<a href="https://github.com/lalaniket8/tileslide" target="_blank"><img src="resources/images/GitHub_Logo.png" /></a>
+</div>
+
 <div id="stopwatch">
 <span>&#x23F2;</span>
 <span id="stopwatchvalue">0.0</span>
 </div>
 
-<div id="GitHubLink">
-<span>STAR ME ON</span>
-<a href="https://github.com/lalaniket8/tileslide" target="_blank"><img src="resources/images/GitHub_Logo.png" /></a>
+<div id="refreshButton">
+
 </div>
 
 <canvas id="canvas">
