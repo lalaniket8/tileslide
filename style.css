@@ -181,6 +181,6 @@ input:checked + .slider:before {
 	font: 20px Lucida Console;
 	text-align: right;
 	display: block;
-	margin-right: 30px;
-	padding: 15px;
+	margin-right: 8px;
+	padding: 12px;
 }
