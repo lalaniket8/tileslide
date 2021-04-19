@@ -11,6 +11,7 @@ Game Instructions: Use Arrowkeys, WASD or Swipe to order the tiles.
 
 You can play the game here : [tileslide](https://lalaniket8.github.io/tileslide/)
 
+Tileslide Gameplay video : [take me to youtube](https://youtu.be/fjAJ-rB7gNg)
 
 #### FEATURES
 * Board size - 2 to 10 rows supported
