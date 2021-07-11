@@ -30,6 +30,17 @@ function toggle(){
 	document.getElementById('canvas').focus();
 }
 
+function toggleSound(){
+	if(SOUND_TOGGLE){
+		SOUND_TOGGLE = false;
+		document.getElementById("sound").style.display = 'none';
+	}else{
+		SOUND_TOGGLE = true;
+		document.getElementById("sound").style.display = 'block';
+	}
+	document.getElementById('canvas').focus();
+};
+
 function openNav() {
 	document.getElementById("mySidenav").style.width = "260px";
 };
@@ -132,6 +143,7 @@ $(document).ready(function(){
 				default:
 			}
 			if(board.checkBoard()){
+				board.playSound(WIN_SOUND);
 				document.getElementById('SolvedMsg').style.display='block';
 				document.getElementById('calloutbtn1').focus();
 				solvedCalloutDisplayed = true;

@@ -184,3 +184,13 @@ input:checked + .slider:before {
 	margin-right: 8px;
 	padding: 12px;
 }
+
+#sound {
+	color: lightgrey;
+	font: 20px Lucida Console;
+	text-align: right;
+	display: block;
+	margin-right: 16px;
+	margin-top: 33px;
+	padding: 12px;
+}

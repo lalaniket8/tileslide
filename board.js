@@ -42,6 +42,21 @@ var Board = function(){
 		}
 	};
 	
+	this.playSound = function(sound){
+		if(SOUND_TOGGLE){
+			if(sound == CLICK_SOUND){
+			var audio = new Audio(CLICK_SOUND_FILE);
+			audio.play();
+			return;
+			}
+			if(sound == WIN_SOUND){
+				var audio = new Audio(WIN_SOUND_FILE);
+				audio.play();
+				return;
+			}
+		}
+	};
+	
 	this.drawTile = function(i,j){
 		
 		var tile_number_string = this.tilemap[i][j];
@@ -57,6 +72,7 @@ var Board = function(){
 			Context.context.fillStyle = 'black';
 			Context.context.font = TILE_FONT;
 			Context.context.fillText(tile_number_string, (x + (TILE_SIZE/2) - (TILE_SIZE/8)), (y + (TILE_SIZE/2) + (TILE_SIZE/18)));
+			this.playSound(CLICK_SOUND);
 		}else{
 			this.maskSprite.draw(x,y,TILE_SIZE ,TILE_SIZE);
 		}

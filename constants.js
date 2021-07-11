@@ -15,3 +15,10 @@ var TILE_FONT = '14px Lucida Console';
 
 var RANDOM_STEPS = TILE_COUNT * 500;
 var ANIMATION_TIMEOUT = 5;
+
+var SOUND_TOGGLE = true;
+
+var CLICK_SOUND = 0;
+var CLICK_SOUND_FILE = 'resources/soundeffects/select_007.ogg';
+var WIN_SOUND = 1;
+var WIN_SOUND_FILE = 'resources/soundeffects/win.ogg';
